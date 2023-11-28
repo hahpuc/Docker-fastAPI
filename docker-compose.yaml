@@ -1,0 +1,26 @@
+version: '3.7'
+
+networks:
+  hydrodynamic-network:
+    name: hydrodynamic-network
+
+services:
+  hydrodynamic-service:
+    container_name: hydrodynamic-service
+    image: hydrodynamic-service
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    volumes:
+      - hydrodynamic-volume:/app/logs
+    ports:
+      - 30330:80
+    networks:
+      - hydrodynamic-network
+    restart: always
+
+volumes:
+  hydrodynamic-volume:
+    name: hydrodynamic-volume
