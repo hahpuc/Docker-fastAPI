@@ -1,10 +1,10 @@
 FROM python:3.12.0
 
-WORKDIR /app 
+WORKDIR /hydrodynamic-service 
 
-COPY /app .
+COPY /hydrodynamic-service .
 
-COPY /app/.env.example .env
+COPY /hydrodynamic-service/.env.example .env
 
 RUN pip install -r requirements.txt
 

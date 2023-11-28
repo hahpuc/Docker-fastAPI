@@ -10,11 +10,11 @@ services:
     image: hydrodynamic-service
     build:
       context: .
-      dockerfile: app/Dockerfile
+      dockerfile: hydrodynamic-service/Dockerfile
     environment:
       - TZ=Asia/Ho_Chi_Minh
     volumes:
-      - hydrodynamic-volume:/app/logs
+      - hydrodynamic-volume:/hydrodynamic-service/logs
     ports:
       - 30330:80
     networks:
