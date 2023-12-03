@@ -2,7 +2,6 @@ from pydantic import BaseModel
 
 class Item(BaseModel):
     name: str
-    description: str = None
     
     class Config:
         orm_mode = True
@@ -14,5 +13,5 @@ class ItemRequest(Item):
     
 class ItemResponse(Item):
     name: str
-    description: str = None
+    link: str = None
     

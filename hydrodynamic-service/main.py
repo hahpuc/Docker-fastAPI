@@ -1,4 +1,5 @@
 import logging
+from services.service_item import ItemService
 import uvicorn
 
 from fastapi import FastAPI
@@ -24,6 +25,9 @@ def get_application() -> FastAPI:
 
 
 app = get_application()
+
+ItemService.create_model_compliler()
+
 if __name__ == '__main__':
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
