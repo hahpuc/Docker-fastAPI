@@ -1,0 +1,159 @@
+/* static/css/style.css */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+.stepper-wrapper {
+    font-family: Arial;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    @media (max-width: 768px) {
+        font-size: 12px;
+    }
+}
+
+.stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+}
+
+.stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+}
+
+.stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+}
+
+.stepper-item.active {
+    font-weight: bold;
+}
+
+.stepper-item.completed .step-counter {
+    background-color: #4bb543;
+}
+
+.stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #4bb543;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+}
+
+.stepper-item:first-child::before {
+    content: none;
+}
+
+.stepper-item:last-child::after {
+    content: none;
+}
+
+.block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    margin: 50px;
+    max-width: 70vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box-log {
+    border: 2px solid #333;
+    padding: 10px;
+    max-width: auto;
+    max-height: 50vh;
+    overflow: auto;
+    background-color: #fff;
+}
+
+.horizontal-view {
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+}
+
+.text {
+    margin-right: 20px;
+}
+
+.upload-input {
+    display: none;
+}
+
+.upload-label {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.upload-label:hover {
+    background-color: #2980b9;
+}
+
+.file-name {
+    margin-top: 10px;
+}

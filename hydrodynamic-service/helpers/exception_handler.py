@@ -1,5 +1,3 @@
-
-
 import enum
 
 from fastapi import Request
@@ -33,7 +31,7 @@ class CustomException(Exception):
         self.http_code = http_code if http_code else 500
         self.code = code if code else str(self.http_code)
         self.message = message
-        
+
 
 async def http_exception_handler(request: Request, exc: CustomException):
     return JSONResponse(

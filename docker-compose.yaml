@@ -15,10 +15,12 @@ services:
       - TZ=Asia/Ho_Chi_Minh
     volumes:
       - hydrodynamic-logs:/hydrodynamic-service/logs
-      - hydrodynamic-2dmodel-input:/hydrodynamic-service/2d-model/input
-      - hydrodynamic-2dmodel-output:/hydrodynamic-service/2d-model/output
+      - hydrodynamic-2dmodel-input:/hydrodynamic-service/2d-model/hydrodynamic/input
+      - hydrodynamic-2dmodel-output:/hydrodynamic-service/2d-model/hydrodynamic/output
+      - rainfall-2dmodel-input:/hydrodynamic-service/2d-model/rainfall-runoff/input
+      - rainfall-2dmodel-output:/hydrodynamic-service/2d-model/rainfall-runoff/output
     ports:
-      - 30330:80
+      - 9090:80
     networks:
       - hydrodynamic-network
     restart: always
@@ -28,20 +30,34 @@ volumes:
     name: hydrodynamic-logs
     driver: local
     driver_opts:
-       o: bind
-       type: none
-       device: ./volumes/logs
+      o: bind
+      type: none
+      device: ./volumes/logs
   hydrodynamic-2dmodel-input:
     name: hydrodynamic-2dmodel-input
     driver: local
     driver_opts:
-       o: bind
-       type: none
-       device: ./volumes/2d-model/input
+      o: bind
+      type: none
+      device: ./volumes/2d-model/hydrodynamic/input
   hydrodynamic-2dmodel-output:
     name: hydrodynamic-2dmodel-output
     driver: local
     driver_opts:
-       o: bind
-       type: none
-       device: ./volumes/2d-model/output
+      o: bind
+      type: none
+      device: ./volumes/2d-model/hydrodynamic/output
+  rainfall-2dmodel-input:
+    name: rainfall-2dmodel-input
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./volumes/2d-model/rainfall/input
+  rainfall-2dmodel-output:
+    name: rainfall-2dmodel-output
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./volumes/2d-model/rainfall/output
